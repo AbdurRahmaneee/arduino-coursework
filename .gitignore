@@ -1,0 +1,14 @@
+# Wi-Fi credentials: never commit. Copy secrets.h.example to secrets.h locally.
+secrets.h
+
+# Third-party libraries (install them with the Arduino Library Manager instead)
+libraries/
+
+# Saved web-page assets and IDE template stubs
+log_bmp180_files/
+BareMinimum.txt
+
+# Python / build artifacts
+__pycache__/
+*.pyc
+build/
