@@ -3,14 +3,17 @@ HOST="192.168.10.45"
 PORT= 12345
 mySocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 mySocket.settimeout(5.0)
-print("UDP Client started. Enter a color (or 'quit' to exit).")
+print("UDP Client started. Enter a Data (or 'quit' to exit).")
 while True:
-    color=input("Enter a Color: ")
-    if color.lower() == 'quit':
+    # Prompt for Data
+    myData=input("Enter a Data: ")
+    if myData.lower() == 'quit':
         break
-    sendColor=color.encode()
-    mySocket.sendto(sendColor, (HOST, PORT))
-    print("Sent " + color + " to HOST ", HOST,PORT)
+    # Send Data to the server
+    myData=myData+'\n'
+    myDataEncoded=myData.encode()
+    mySocket.sendto(myDataEncoded, (HOST, PORT))
+    print("Sent " + myData + " to HOST ", HOST,PORT)
     try:
         response, server_address=mySocket.recvfrom(1024)
         print("Server Response: ", response.decode())
